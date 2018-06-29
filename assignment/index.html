@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Assignment - Front-End Development</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/spectrum.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/main.css" rel="stylesheet">
+
+  </head>
+
+  <body class="notconnected">
+
+        <nav class="navbar navbar-default ">
+                <div class="container">
+                  <div class="navbar-header">
+                    
+                    <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a>
+                  </div>
+                  <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                      <li style="margin-top:40px;">Websockets Client Showcase</li>
+                    </ul>
+                  </div><!--/.nav-collapse -->
+                </div>
+              </nav>
+
+    <div class="row" style="margin-bottom:100px;margin-left:0px;">
+        <div class="container">
+            <div class="row">
+                
+
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" id="tab1" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+Connection
+ </a>
+                                </h4>
+                                <div id="connectionStatus"></div>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+
+
+                                        <div class="col-md-5 col-xs-12">
+                                            <label>Host:</label> <br>
+                                                <input type="text" id="host" value="broker.mqttdashboard.com">
+                                                
+                                        </div>
+                                        <div class="col-md-1 col-xs-12">
+                                                <label>Port:</label> <br>
+                                                <input type="text" id="port" value="8000">
+                                                
+                                        </div>
+                                        <div class="col-md-4 col-xs-12">
+                                                <label>ClientID:</label> <br>
+                                                <input type="text" id="cid" value="">
+                                                
+                                        </div>
+                                        <div class="col-md-2 col-xs-12" style="margin-top:35px;">
+                                            
+                                                <input type="button" id="connect" value="Connect" >
+                                                
+                                        </div>
+                                        <div class="col-md-4 col-xs-12">
+                                                <label>Username:</label> <br>
+                                                <input type="text">
+                                                
+                                        </div>
+                                        <div class="col-md-3 col-xs-12">
+                                                <label>Password:</label> <br>
+                                                <input type="password">
+                                                
+                                        </div>
+                                        <div class="col-md-2 col-xs-12">
+                                                <label>Keep Alive:</label> <br>
+                                                <input type="text" >
+                                                
+                                        </div>
+                                        <div class="col-md-1 col-xs-12" style="display:none;">
+                                                <label>SSL:</label> <br>
+                                                <input type="checkbox" ><br>
+                                                
+                                        </div>
+                                        <div class="col-md-2 col-xs-12">
+                                                <label>Clean session:</label> <br>
+                                                <input type="checkbox" checked disabled ><br>
+                                                
+                                        </div>
+                                        <div class="col-md-8 col-xs-12">
+                                                <label>Last-Will Topic:</label> <br>
+                                                <input type="text">
+                                                
+                                        </div>
+                                        <div class="col-md-2 col-xs-12">
+                                                <label>Last-Will QoS:</label> <br>
+                                                <select class="list" >
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        </select>
+                                        </div>
+                                        <div class="col-md-2 col-xs-12">
+                                                <label>Last-Will Retain:</label> <br>
+                                                <input type="checkbox" ><br>
+                                                
+                                        </div>
+                                        <div class="col-md-12 col-xs-12">
+                                                <label>Last-Will Messsage:</label> <br>
+                                                <textarea name="last_will"  style="width:100%;" id="lwill" cols="100" rows="3" ></textarea>
+                                                
+                                        </div>
+
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                            <div class="col-md-8">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" id="tab2" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+Publish
+ </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <div class="col-md-6 col-xs-12">
+                                        <label>Topic:</label> <br>
+                                            <input type="text" value="testtopic/1">
+                                            
+                                    </div>
+                                    <div class="col-md-2 col-xs-12">
+                                            <label>QoS:</label> <br>
+                                            <select class="list" >
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                </select>
+                                            
+                                    </div>
+                                    <div class="col-md-2 col-xs-12">
+                                            <label>Retain:</label> <br>
+                                            <input type="checkbox" ><br>
+                                            
+                                    </div>
+                                    <div class="col-md-2 col-xs-12" style="margin-top:35px;">
+                                        
+                                            <input type="button" id="publish" value="Publish" >
+                                            
+                                    </div>
+                                    <div class="col-md-12 col-xs-12">
+                                        <label>Messsage:</label> <br>
+                                        <textarea name="last_will"  style="width:100%;" id="lwill" cols="100" rows="3" ></textarea>
+                                        
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" id="tab3" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+Messsages
+ </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+<div id="recieved-data">
+    
+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" id="tab4" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Subscriptions
+ </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body">
+                                    <div class="col-md-12 col-xs-12" style="margin-top:35px;">
+                                        
+                                            <input type="button" data-toggle="modal" data-target="#myModal" value="Add New Topic Subscription" >
+                                            
+                                    </div>
+                                    <div id="myModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                      
+                                          <!-- Modal content-->
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal">×</button>
+                                            </div>
+                                       
+                                            
+                                            <div class="modal-body">
+                                              <from>
+                                                  
+                                                  <!-- Select Basic -->
+                                                  <div class="form-group col-md-4 col-xs-12">
+                                                    <label class="control-label" for="selectbasic">Color:</label><br>
+                                                    <input type="text" id="colormin" value="red" />
+                                                    
+                                                   </div>
+                                                  
+                                              <!-- Multiple Checkboxes (inline) -->
+                                                  
+                                              <!-- Textarea -->
+                                                  <div class="form-group col-md-4 col-xs-12">
+                                                   <label class="control-label" for="txtDescripcion">QoS:</label>
+                                                   <select class="list" >
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    </select>
+                                                     
+                                                  </div>  
+                                                  <div class="form-group col-md-4 col-xs-12">
+                                                    <input type="button" id="sub" style="margin-top:25px;" value="Subscribe" >
+                                                        
+                                                    </div>   
+                                               <!-- Textarea -->
+
+                                                  <div class="form-group" id="full-width">
+                                                  <label class="control-label" for="txtObs">Topic:</label><br>
+                                                <input type="text" value="testtopic/1">
+                                                
+                                                  </div>   
+                                              </from>    
+                                              </div> 
+                                      
+                                      
+                                          
+                                          </div>
+                                      
+                                        </div>
+                                      </div>
+                                      </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+                    <!-- /.panel-group -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+   
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/spectrum.js"></script>
+    <script>
+$("#colormin").spectrum({
+    color: "#DDA703"
+});
+    </script>
+
+</body>
+</html>

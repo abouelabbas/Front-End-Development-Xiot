@@ -1,0 +1,70 @@
+body{
+    background-color: rgb(44, 44, 44) ;
+}
+.navbar{
+    height: 100px;
+    border-radius: 0px !important;
+}
+.panel-group .panel{
+    border:none ;
+    box-shadow: none;
+}
+.panel-heading{
+    width:100%;
+    display: inline-block;
+    background-color: rgb(221, 167, 3) !important;
+    color:#fff !important;    
+}
+.panel-title a{
+    font-weight: 550;
+}
+.panel-heading:hover a, .panel-heading a:focus{
+    text-decoration: none !important;
+}
+.panel-body{
+    border-top: none !important;
+}
+.row{
+    width: 100%;
+}
+.col-md-12{
+    margin-bottom: 5px;
+}
+.panel-title{
+    display: inline-block;
+}
+.panel-body>div{
+    margin:10px auto;
+}
+.panel-body div input, .panel-body div select{
+    width:100%;
+    padding:5px 10px;
+}
+input[type="button"]{
+    background-color: #DDA703;
+    border: none;
+    color:#fff;
+}
+#connectionStatus {
+    margin-top: 7px;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: red;
+    float: right;
+}
+.modal-dialog{
+    width: 50%;
+}
+.modal-header{
+    border-bottom: none !important;
+}
+.form-group{
+    display: inline-block;
+}
+#recieved-data{
+    min-height: 100px;
+}
+#full-width{
+    width: 100%;
+}
